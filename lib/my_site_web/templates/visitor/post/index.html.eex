@@ -1,0 +1,26 @@
+<h2>Listing Posts</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Read time</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for post <- @posts do %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.body %></td>
+      <td><%= post.read_time %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: post_path(@conn, :show, %MySite.Blog.Slug{resource: post}), class: "btn btn-default btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

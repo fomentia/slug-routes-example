@@ -1,0 +1,32 @@
+<h2>Show Post</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </li>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @post.body %>
+  </li>
+
+  <li>
+    <strong>Read time:</strong>
+    <%= @post.read_time %>
+  </li>
+
+</ul>
+
+<h4>Comments</h4>
+
+<%= for comment <- @comments do %>
+<p><b><%= comment.title %></b> by <%= comment.author_name %></p>
+<p><%= comment.body %></p>
+<p><%= link "Show", to: comment_path(@conn, :show, %MySite.Blog.Slug{resource: comment}), class: "btn btn-default btn-xs" %></p>
+
+<hr>
+<% end %>
+
+<span><%= link "Back", to: post_path(@conn, :index) %></span>

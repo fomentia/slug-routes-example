@@ -1,0 +1,22 @@
+<h2>Show Comment</h2>
+
+<ul>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @comment.body %>
+  </li>
+
+  <li>
+    <strong>Author name:</strong>
+    <%= @comment.author_name %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @comment.title %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: post_path(@conn, :show, %MySite.Blog.Slug{resource: @post}) %>
